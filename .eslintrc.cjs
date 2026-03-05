@@ -27,16 +27,12 @@ module.exports = {
     'react/jsx-filename-extension': ['warn', { extensions: ['.jsx'] }],
     'import/extensions': ['error', 'ignorePackages', { js: 'never', jsx: 'never' }],
     'no-console': ['warn', { allow: ['warn', 'error'] }],
-    // Redux Toolkit (Immer) uses "mutating" style updates in reducers.
     'no-param-reassign': ['error', { props: false }],
-    // Allow unused "_" parameters (common in map callbacks / thunk args).
     'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
 
-    // We don't use prop-types in this project (state shape comes from API + Redux).
     'react/prop-types': 'off',
     'react/require-default-props': 'off',
 
-    // Allow devDependencies imports in dev/test/e2e files.
     'import/no-extraneous-dependencies': ['error', {
       devDependencies: [
         'vite.config.js',
@@ -62,11 +58,24 @@ module.exports = {
       env: {
         jest: true,
       },
+      rules: {
+        'max-len': 'off',
+      },
     },
     {
-      files: ['cypress/**'],
+      files: ['cypress/**/*.{js,jsx,ts,tsx}'],
       env: {
         mocha: true,
+      },
+      globals: {
+        cy: 'readonly',
+        Cypress: 'readonly',
+        expect: 'readonly',
+        assert: 'readonly',
+        chai: 'readonly',
+      },
+      rules: {
+        'max-len': 'off',
       },
     },
   ],
