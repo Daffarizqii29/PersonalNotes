@@ -2,13 +2,9 @@ name: Continuous Integration
 
 on:
   pull_request:
-    branches:
-      - master
-      - main
+    branches: [main, master]
   push:
-    branches:
-      - master
-      - main
+    branches: [main, master]
 
 jobs:
   test:
@@ -25,7 +21,7 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: npm ci
 
       - name: Lint
         run: npm run lint
@@ -36,4 +32,5 @@ jobs:
       - name: E2E (Cypress)
         uses: cypress-io/github-action@v6
         with:
+          install: false
           command: npm run e2e
