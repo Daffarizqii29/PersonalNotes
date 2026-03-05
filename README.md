@@ -104,4 +104,4 @@ Contoh penempatan:
 
 ## URL Deployment (Vercel)
 Tempel URL Vercel kamu di bagian ini setelah deploy:
-- Vercel URL: (https://personal-notes-wine.vercel.app/threads)
+- Vercel URL: (https://personal-notes-wine.vercel.app/)
