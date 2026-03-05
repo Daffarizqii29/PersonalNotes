@@ -95,12 +95,10 @@ Lampirkan 3 screenshot berikut di folder `/screenshot` dan tampilkan di README:
 - `3_branch_protection.png` (branch protection di halaman PR)
 
 Contoh penempatan:
-```md
 ## Bukti CI/CD & Branch Protection
 ![CI Check Error](./screenshot/1_ci_check_error.png)
 ![CI Check Pass](./screenshot/2_ci_check_pass.png)
 ![Branch Protection](./screenshot/3_branch_protection.png)
-```
 
 ## URL Deployment (Vercel)
 Tempel URL Vercel kamu di bagian ini setelah deploy:
