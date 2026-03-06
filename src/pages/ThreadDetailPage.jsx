@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 import { addComment, clearThreadDetail, fetchThreadDetail } from '../state/threadDetailSlice';
 import Avatar from '../ui/components/Avatar';
@@ -29,6 +31,49 @@ function CommentItem({ threadId, comment }) {
       </div>
 
       <div className="commentBody">{comment.content}</div>
+    </div>
+  );
+}
+
+function ThreadDetailSkeleton() {
+  return (
+    <div className="page" aria-hidden="true">
+      <article className="card detailCard">
+        <div className="detailTop">
+          <Skeleton width={88} height={28} borderRadius={999} />
+          <Skeleton width={34} height={72} borderRadius={16} />
+        </div>
+
+        <div style={{ marginTop: 12 }}>
+          <Skeleton height={36} width="70%" />
+        </div>
+
+        <div className="detailOwner">
+          <div className="userInline">
+            <Skeleton circle width={34} height={34} />
+            <div>
+              <Skeleton width={120} />
+              <Skeleton width={96} />
+            </div>
+          </div>
+        </div>
+
+        <div style={{ marginTop: 14 }}>
+          <Skeleton count={5} />
+        </div>
+      </article>
+
+      <section className="section">
+        <div className="card formCard">
+          <Skeleton height={24} width={140} />
+          <div style={{ marginTop: 12 }}>
+            <Skeleton height={110} borderRadius={14} />
+          </div>
+          <div style={{ marginTop: 12 }}>
+            <Skeleton width={88} height={40} borderRadius={14} />
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
@@ -71,12 +116,7 @@ export default function ThreadDetailPage() {
   };
 
   if (status === 'loading' && !detail) {
-    return (
-      <div className="page">
-        <div className="card skeleton" style={{ height: 220 }} />
-        <div className="card skeleton" style={{ height: 160, marginTop: 12 }} />
-      </div>
-    );
+    return <ThreadDetailSkeleton />;
   }
 
   if (error) {

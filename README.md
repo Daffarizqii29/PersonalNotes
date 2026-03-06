@@ -48,6 +48,19 @@ npm run lint
 - State dari API disimpan di Redux Store.
 
 
+
+## React Ecosystem yang Digunakan
+Project ini memakai **react-loading-skeleton** sebagai salah satu React ecosystem yang dipakai langsung pada kode aplikasi untuk menampilkan loading skeleton saat data thread dan detail thread masih dimuat.
+
+Berkas implementasi:
+- `src/pages/ThreadsPage.jsx`
+- `src/pages/ThreadDetailPage.jsx`
+
+Cara memasang dependency:
+```bash
+npm install
+```
+
 ## Automation Testing
 Perintah untuk menjalankan pengujian:
 
